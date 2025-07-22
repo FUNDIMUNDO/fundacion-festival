@@ -100,8 +100,15 @@ const QuienesSomos = () => {
                 </div>
                 <Card.Title>Misión</Card.Title>
                 <Card.Text className="flex-grow-1">
-                  Conectar a las comunidades a través de eventos culturales que promuevan la inclusión, el respeto
-                  por la diversidad y el desarrollo del talento local.
+                  En la Fundación Festival para Colombia y el Mundo tenemos el firme propósito de
+                   unir a todos los departamentos del país en un gran encuentro cultural en Bogotá,
+                    donde cada región haga valer sus tradiciones y expresiones más emblemáticas. 
+                    A través de la celebración navideña, buscamos reavivar el calor humano y los lazos familiares, 
+                    al tiempo que impulsamos nuevos talentos para que desarrollen y compartan sus virtudes. 
+                    Para ello, integramos de manera colaborativa a empresas del sector público y privado, 
+                    creando sinergias que fortalecen el tejido social y cultural de Colombia.
+
+
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -118,8 +125,11 @@ const QuienesSomos = () => {
                 </div>
                 <Card.Title>Visión</Card.Title>
                 <Card.Text className="flex-grow-1">
-                  Ser reconocidos en toda América Latina como un referente en promoción cultural y desarrollo
-                  comunitario, inspirando a nuevas generaciones a valorar y preservar nuestras tradiciones.
+                  Para el año 2030, seremos una fundación líder y reconocida, t
+                  anto a nivel nacional como internacional, 
+                  por nuestro festival navideño que celebra las expresiones culturales más icónicas de cada departamento de Colombia. 
+                  Integraremos avances tecnológicos de vanguardia y empoderaremos a las comunidades más vulnerables mediante el impulso de emprendimientos sociales,
+                   fortaleciendo así la cohesión familiar y el desarrollo humano.
                 </Card.Text>
               </Card.Body>
             </Card>

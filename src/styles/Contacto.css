@@ -1,0 +1,127 @@
+/* src/styles/Contacto.css */
+
+/* 1. Contenedor de la sección */
+#contacto {
+  background-color: var(--color-bg-light);
+  padding: 4rem 1rem;
+}
+
+/* 2. Título */
+#contacto h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+/* 3. Formulario: card-like */
+#contacto form {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 4. Labels */
+#contacto label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* 5. Inputs y textarea */
+#contacto .form-control {
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+#contacto .form-control:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(108,165,70,0.2);
+  outline: none;
+}
+
+/* 6. Botón de envío */
+#contacto .btn-primary {
+  align-self: center;
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  font-size: var(--fs-body);
+  border-radius: 0.5rem;
+  transition: background-color 200ms ease, transform 200ms ease,
+              box-shadow 200ms ease;
+}
+#contacto .btn-primary:hover {
+  background-color: rgba(255,127,80,0.85);
+  transform: translateY(-2px);
+}
+#contacto .btn-primary:active,
+#contacto .btn-primary:disabled {
+  background-color: #165D88 !important;
+  border-color: #165D88 !important;
+  opacity: 1 !important;
+}
+#contacto .btn-primary:focus-visible {
+  box-shadow: 0 0 0 4px rgba(22,93,136,0.5);
+}
+
+/* 7. Responsive */
+@media (max-width: 576px) {
+  #contacto {
+    padding: 2rem 0.5rem;
+  }
+  #contacto form {
+    padding: 1.5rem;
+  }
+}
+
+/* Contenedor card */
+.contact-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  padding: 2rem;
+}
+
+/* Íconos dentro de InputGroup */
+.contact-card .input-group-text {
+  background-color: var(--color-secondary);
+  color: #fff;
+  border: none;
+}
+
+/* Bordes de inputs */
+.contact-card .form-control {
+  border-radius: 0.5rem;
+}
+
+/* Botón principal */
+.btn-contact {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+.btn-contact:hover {
+  background-color: rgba(255,127,80,0.85);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .contact-card {
+    padding: 1.5rem;
+  }
+}
+

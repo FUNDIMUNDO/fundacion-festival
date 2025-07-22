@@ -1,0 +1,40 @@
+:root {
+  /* Colores */
+  --color-primary:   #025282;
+  --color-secondary: #33A35D;
+  --color-accent:    #E44730;
+  --color-logo-purple: #6a1b9a; 
+
+  /* Tipografía */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body:    'Open Sans', sans-serif;
+
+  /* Tamaños */
+  --fs-h2: 2rem;
+  --fs-body: 1rem;
+}
+/* efecto ripple */
+.btn-accent {
+  position: relative;
+  overflow: hidden;
+}
+.btn-accent::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+.btn-accent:active::after {
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+}
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}

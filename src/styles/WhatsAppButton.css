@@ -1,0 +1,26 @@
+
+/* src/styles/WhatsAppButton.css */
+.whatsapp-button {
+  position: fixed;
+  bottom: 4rem;
+  right: 1.5rem;
+  background-color: #25D366;
+  color: #fff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  z-index: 1050;
+}
+.whatsapp-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+.whatsapp-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}

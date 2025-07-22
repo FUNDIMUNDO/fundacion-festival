@@ -1,0 +1,48 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+REACT_APP_FIREBASE_API_KEY=AIzaSyAleN4JRv5oUHfs_l7AWeoBzFCdSSjqfMA
+REACT_APP_FIREBASE_AUTH_DOMAIN=fundimundo-4fbce.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=fundimundo-4fbce
+REACT_APP_FIREBASE_STORAGE_BUCKET=fundimundo-4fbce.firebasestorage.app
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=722547545080
+REACT_APP_FIREBASE_APP_ID=1:722547545080:web:c67538df57e22b0769bc0d
+REACT_APP_FIREBASE_MEASUREMENT_ID=G-88LGL9FHXP
+REACT_APP_CLOUDINARY_CLOUD_NAME=dvc2aqcsb
+REACT_APP_CLOUDINARY_UPLOAD_PRESET=events_preset
+# Node
+node_modules/
+npm-debug.log*
+.env.local
+serviceAccountKey.json
+
+# Build
+build/
+dist/
+
+# IDEs
+.vscode/
+.idea/
+
+

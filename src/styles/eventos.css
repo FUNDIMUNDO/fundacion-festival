@@ -1,0 +1,96 @@
+/* src/styles/eventos.css */
+
+/* 1) Card: radio, overflow y hover */
+.event-card {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 2) Imagen: ratio fijo y cover */
+.event-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* 3) Badge de fecha en morado */
+.badge-date {
+  background-color: var(--color-logo-purple) !important;
+  color: #fff !important;
+}
+
+/* 4) Botón de acento (opcional) */
+.btn-accent {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+.btn-accent:hover,
+.btn-accent:focus {
+  background-color: rgba(255, 127, 80, 0.85);
+  border-color: rgba(255, 127, 80, 0.85);
+}
+/* cambio de sombre en el botón */
+
+/* src/styles/eventos.css */
+.btn-accent {
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Card */
+.event-card:focus-within {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 4px;
+}
+
+/* Botón de acento */
+.btn-accent:focus-visible {
+  box-shadow: 0 0 0 4px rgba(106,27,154,0.4);
+  transform: translateY(-1px);
+}
+
+/* Cuando se pulsa el botón */
+.btn-accent:active {
+  background-color: #165D88 !important;
+  border-color: #165D88 !important;
+}
+
+/* Opcional: que también se quede al hacer focus (teclado) */
+.btn-accent:focus-visible {
+  background-color: #165D88 !important;
+  border-color: #165D88 !important;
+  box-shadow: 0 0 0 0.25rem rgba(22, 93, 136, 0.5);
+}
+
+/* Estado active */
+.btn-accent:active {
+  background-color: #165D88 !important;
+  border-color: #165D88 !important;
+}
+
+/* Estado disabled (cuando dice “Cargando…”) */
+.btn-accent:disabled,
+.btn-accent.disabled {
+  background-color: #165D88 !important;
+  border-color: #165D88 !important;
+  opacity: 1 !important; /* anula la opacidad por defecto de Bootstrap */
+}
+
+/* Focus-visible también en azul */
+.btn-accent:focus-visible {
+  background-color: #165D88 !important;
+  border-color: #165D88 !important;
+  box-shadow: 0 0 0 0.25rem rgba(22, 93, 136, 0.5);
+}

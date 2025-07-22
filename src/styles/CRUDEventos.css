@@ -1,0 +1,118 @@
+/* src/styles/CRUDEventos.css */
+
+/* Contenedor principal y header de la sección */
+.eventos-container {
+  padding: 2rem 0;
+}
+.eventos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.eventos-header h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+/* Botón Agregar Evento y Guardar en morado de marca */
+.btn-add-event {
+  background-color: var(--color-logo-purple) !important;
+  border-color: var(--color-logo-purple) !important;
+  color: #fff !important;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  transition: filter 0.2s ease;
+}
+.btn-add-event:hover {
+  filter: brightness(1.1) !important;
+}
+
+/* Botones de acción (Editar, Eliminar) */
+.btn-action {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  background: transparent;
+  border: none;
+  transition: filter 0.2s ease;
+}
+
+/* Botón Editar: morado de marca */
+.btn-action-edit {
+  background-color: var(--color-logo-purple) !important;
+  border: 1px solid var(--color-logo-purple) !important;
+  color: #fff !important;
+}
+.btn-action-edit:hover {
+  filter: brightness(1.1) !important;
+}
+
+/* Botón Eliminar: color accent (rojo/anaranjado) */
+.btn-action-delete {
+  background-color: var(--color-accent) !important;
+  border: 1px solid var(--color-accent) !important;
+  color: #fff !important;
+}
+.btn-action-delete:hover {
+  filter: brightness(1.1) !important;
+}
+.btn-action-edit:hover {
+  filter: brightness(1.1);
+}
+
+/* Botón Eliminar: color accent (rojo/anaranjado) */
+.btn-action-delete {
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  color: #fff;
+}
+.btn-action-delete:hover {
+  filter: brightness(1.1);
+}
+
+/* Cards de eventos */
+.event-card {
+  border: 1px solid #eaeaea;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+.event-card .badge-date {
+  background-color: var(--color-logo-purple);
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Modal de CRUD */
+.modal-header {
+  background-color: var(--color-logo-purple);
+  color: #fff;
+  border-bottom: none;
+}
+.modal-title {
+  font-family: var(--font-heading);
+}
+.modal-body {
+  padding-top: 1rem;
+}
+.modal-footer .btn-add-event {
+  /* morado ya definido */
+}
+.modal-footer .btn-secondary:hover {
+  filter: brightness(0.9);
+}
+
+/* Form Controls dentro del modal */
+.modal-body .form-control {
+  border-radius: 0.375rem;
+}
+.modal-body .form-label {
+  font-weight: 600;
+  color: var(--color-primary);
+}

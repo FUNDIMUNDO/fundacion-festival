@@ -1,0 +1,58 @@
+/* 1) Base navbar: transparente y sticky */
+.navbar-custom {
+  background-color: transparent !important;
+  padding: 0.75rem 2rem;
+  transition: background-color 300ms ease, box-shadow 300ms ease;
+}
+
+/* 2) Al hacer scroll: fondo blanco y sombra */
+.navbar-custom.navbar-scrolled {
+  background-color: var(--bs-body-bg) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 3) Brand (logo + texto) */
+.navbar-custom .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.navbar-custom .navbar-brand img {
+  height: 40px;
+  object-fit: contain;
+}
+
+/* 4) Enlaces */
+.navbar-custom .nav-link {
+  position: relative;
+  margin: 0 0.75rem;
+  font-family: var(--font-body);
+  color: var(--color-text) !important;
+  transition: color 200ms ease;
+}
+.navbar-custom .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 300ms ease;
+}
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+  color: var(--color-primary) !important;
+}
+.navbar-custom .nav-link:hover::after,
+.navbar-custom .nav-link.active::after {
+  width: 100%;
+}
+
+/* 5) Toggler limpio */
+.navbar-custom .navbar-toggler {
+  border: none;
+}
+.navbar-custom .navbar-toggler-icon {
+  filter: invert(0.2);
+}

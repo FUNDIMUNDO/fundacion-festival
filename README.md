@@ -68,3 +68,31 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Plan de Firebase
+
+Para gestionar donaciones y datos de usuarios utilizamos Firestore con este esquema de planes:
+
+- ### Spark (Free Tier)
+  - **Almacenamiento**: hasta 1 GiB  
+  - **Lecturas**: 50 000 operaciones/día  
+  - **Escrituras**: 20 000 operaciones/día  
+  - **Eliminaciones**: 20 000 operaciones/día  
+  - **Ancho de banda**: 10 GiB salida / 5 GiB entrada por mes  
+  - No hay costo mientras se mantenga dentro de estos límites.
+
+- ### Blaze (Pago por uso)
+  - Se activa automáticamente al superar los límites de Spark.
+  - **Costos aproximados**:
+    - Lecturas: \$0.06 por 100 000 lecturas  
+    - Escrituras: \$0.18 por 100 000 escrituras  
+    - Almacenamiento: \$0.026 / GiB / mes  
+    - Ancho de banda: \$0.12 / GiB de salida  
+  - Se recomienda configurar alertas de presupuesto en Google Cloud Billing.
+
+> 💡 _Estrategia:_  
+> 1. Arrancar en **Spark** (gratuito).  
+> 2. Monitorizar uso en la consola de Firebase.  
+> 3. Migrar a **Blaze** sólo cuando superes el free tier.
+

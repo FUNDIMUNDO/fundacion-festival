@@ -1,3 +1,4 @@
+// src/components/CustomNavbar.jsx
 import React, { useState, useEffect, useContext } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,6 +7,7 @@ import logo from '../assets/logos/logo.png';
 import '../styles/CustomNavbar.css';
 import { AuthContext } from '../contexts/AuthContext';
 import { auth } from '../firebaseConfig';
+import DonationButton from './DonationButton';
 
 const CustomNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -41,7 +43,7 @@ const CustomNavbar = () => {
           <img
             src={logo}
             alt="Logo FUNDIMUNDO"
-            style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
+            style={{ height: '60px', width: 'auto', objectFit: 'contain' }}
             className="navbar-logo me-3"
           />
           <span className="fw-bold fs-4">FUNDIMUNDO</span>
@@ -76,6 +78,9 @@ const CustomNavbar = () => {
                 Cerrar Sesión
               </Nav.Link>
             )}
+
+            {/* Botón de donaciones */}
+            <DonationButton />
           </Nav>
         </Navbar.Collapse>
       </Container>

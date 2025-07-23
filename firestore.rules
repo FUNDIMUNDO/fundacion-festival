@@ -1,10 +1,25 @@
+rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    // Reglas para Eventos
     match /events/{eventId} {
       allow read: if true;
       allow create, update, delete:
         if request.auth != null
         && request.auth.token.admin == true;
     }
+
+    // Reglas para Donaciones
+    match /donations/{docId} {
+      // Solo usuarios autenticados pueden crear donaciones
+      allow create: if request.auth != null;
+      // Cada usuario solo puede leer sus propias donaciones
+      allow read:   if request.auth != null
+                  && request.auth.uid == resource.data.userId;
+      // No permitimos actualizar ni eliminar donaciones
+      allow update, delete: if false;
+    }
+
   }
 }

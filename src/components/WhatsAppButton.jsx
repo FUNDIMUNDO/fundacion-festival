@@ -5,7 +5,7 @@ import '../styles/WhatsAppButton.css';
 
 const WhatsAppButton = () => {
   const phone = '573006207693';
-  const message = 'Hola Fundación CARNABOG, tengo una consulta.';
+  const message = 'Hola Fundación FUNDIMUNDOsuper, tengo una consulta.';
   const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
 
   return (

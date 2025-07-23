@@ -56,3 +56,26 @@
 .navbar-custom .navbar-toggler-icon {
   filter: invert(0.2);
 }
+
+/* Compactar padding del Navbar */
+.navbar-custom {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+/* Quitar padding extra del brand */
+.navbar-custom .navbar-brand {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Asegurar tamaño del logo */
+.navbar-custom .navbar-logo {
+  height: 88px !important;
+  max-height: none !important;
+  width: auto !important;
+  background: transparent !important;
+}
+
+
+

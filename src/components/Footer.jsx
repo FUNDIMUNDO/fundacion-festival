@@ -1,7 +1,8 @@
+// src/components/Footer.jsx
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FaInstagram } from 'react-icons/fa';
+import { FaInstagram, FaEnvelope, FaPhone, FaWhatsapp } from 'react-icons/fa';
 import { SiTiktok } from 'react-icons/si';
 
 const Footer = () => {
@@ -34,8 +35,25 @@ const Footer = () => {
 
           <Col md={4}>
             <h6>Contacto</h6>
-            <p className="mb-1">📧 infofundimundo@gmail.com</p>
-            <p className="mb-1">📍 Bogotá, Colombia</p>
+            <p className="mb-1">
+              <FaEnvelope className="me-2 text-secondary" />
+              infofundimundo@gmail.com
+            </p>
+            <p className="mb-1">
+              <FaPhone className="me-2 text-primary" />
+              +57 123 456 7890
+            </p>
+            <p className="mb-1">
+              <FaWhatsapp className="me-2 text-success" />
+              <a
+                href="https://wa.me/571234567890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-light text-decoration-none"
+              >
+                WhatsApp
+              </a>
+            </p>
             <div className="d-flex gap-3 mt-2">
               <a
                 href="https://instagram.com/fundimundo"

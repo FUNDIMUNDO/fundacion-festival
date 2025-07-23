@@ -11,7 +11,7 @@ import {
   Spinner,
   Alert
 } from 'react-bootstrap';
-import { FaUser, FaEnvelope, FaComment } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaComment, FaPhone } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../styles/Contacto.css';
@@ -61,10 +61,7 @@ const Contacto = () => {
   return (
     <section id="contacto" className="bg-light py-5">
       <Container>
-        <h2
-          className="mb-2 text-center"
-          data-aos="fade-up"
-        >
+        <h2 className="mb-2 text-center" data-aos="fade-up">
           Contáctanos
         </h2>
         <p
@@ -77,18 +74,10 @@ const Contacto = () => {
 
         <Row className="justify-content-center">
           <Col lg={8}>
-            <Card
-              className="contact-card"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
+            <Card className="contact-card" data-aos="fade-up" data-aos-delay="200">
               <Card.Body>
                 {success && (
-                  <Alert
-                    variant="success"
-                    onClose={() => setSuccess(false)}
-                    dismissible
-                  >
+                  <Alert variant="success" onClose={() => setSuccess(false)} dismissible>
                     ¡Gracias por tu mensaje! Pronto nos pondremos en contacto.
                   </Alert>
                 )}
@@ -153,11 +142,7 @@ const Contacto = () => {
 
                   {/* Botón */}
                   <div className="text-center">
-                    <Button
-                      type="submit"
-                      className="btn-contact"
-                      disabled={loading}
-                    >
+                    <Button type="submit" className="btn-contact" disabled={loading}>
                       {loading ? (
                         <>
                           <Spinner
@@ -173,6 +158,19 @@ const Contacto = () => {
                         'Enviar mensaje'
                       )}
                     </Button>
+                  </div>
+
+                  {/* Contacto alternativo */}
+                  <div className="mt-4 text-center">
+                    <p className="mb-1">Si el formulario o el botón de Whatsapp no funciona, contáctanos a:</p>
+                    <p className="mb-1">
+                      <FaPhone className="me-2 text-primary" />
+                      +57 300 6207693
+                    </p>
+                    <p>
+                      <FaEnvelope className="me-2 text-secondary" />
+                      infofundimundo@gmail.com
+                    </p>
                   </div>
                 </Form>
               </Card.Body>

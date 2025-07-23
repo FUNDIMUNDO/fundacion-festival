@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';  // ← Import de iconos
-import logo from '../assets/logos/logo.jpg';
+import logo from '../assets/logos/logo.png';
 import '../styles/CustomNavbar.css';
 import { AuthContext } from '../contexts/AuthContext';
 import { auth } from '../firebaseConfig';
@@ -36,7 +36,7 @@ const CustomNavbar = () => {
           <img
             src={logo}
             alt="Logo FUNDIMUNDO"
-            height="60"
+            height="100"
             className="me-3"
             style={{ objectFit: 'contain', maxHeight: '60px' }}
           />

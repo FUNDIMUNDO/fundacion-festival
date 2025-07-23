@@ -30,8 +30,9 @@ export default function DonationButton() {
       setShow(false);
       setAmount('');
     } catch (e) {
-      console.error('Error al registrar la donación →', e.code, e.message);
-      toast.error('Error al registrar la donación');
+         console.error('Error al registrar la donación →', e);
+         // Muestra el código y mensaje en el toast
+         toast.error(`Error al registrar la donación (${e.code}): ${e.message}`);     
     }
   };
 

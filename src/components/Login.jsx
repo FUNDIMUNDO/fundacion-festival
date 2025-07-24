@@ -9,14 +9,12 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
-import {
-  signInWithEmailAndPassword
-} from 'firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
-import googleLogo from '../assets/logos/google-logo.webp=s48-fcrop64=1,00000000ffffffff-rw';   // <-- importa el logo
-import '../styles/Login.css';                              // <-- importa los estilos
+import googleLogo from '../assets/logos/google-logo.png'; // asegúrate de tener este archivo
+import '../styles/Login.css';
 
 export default function Login() {
   const [email, setEmail]       = useState('');
@@ -91,6 +89,14 @@ export default function Login() {
             </Button>
           </Form>
 
+          {/* Enlace a registro */}
+          <p className="text-center mt-2">
+            ¿No tienes cuenta?{' '}
+            <Link to="/register">
+              <strong>Regístrate aquí</strong>
+            </Link>
+          </p>
+
           <div className="divider">o</div>
 
           <Button
@@ -102,10 +108,12 @@ export default function Login() {
           >
             {loading 
               ? <Spinner animation="border" size="sm" /> 
-              : <>
+              : (
+                <>
                   <img src={googleLogo} alt="Google logo" className="google-logo" />
                   <span>Continuar con Google</span>
                 </>
+              )
             }
           </Button>
         </Col>

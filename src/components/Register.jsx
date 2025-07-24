@@ -30,22 +30,28 @@ function generatePassword(length = 12) {
 }
 
 export default function Register() {
-  const [email, setEmail]         = useState('');
-  const [password, setPassword]   = useState('');
-  const [error, setError]         = useState('');
-  const [loading, setLoading]     = useState(false);
+  const [email, setEmail]           = useState('');
+  const [password, setPassword]     = useState('');
+  const [confirmPwd, setConfirmPwd] = useState('');
+  const [error, setError]           = useState('');
+  const [loading, setLoading]       = useState(false);
   const navigate = useNavigate();
   const auth     = getAuth();
 
   const handleGenerate = () => {
     const pwd = generatePassword(16);
     setPassword(pwd);
+    setConfirmPwd(pwd);
     navigator.clipboard.writeText(pwd);
     toast.info('Contraseña generada y copiada al portapapeles');
   };
 
   const handleSubmit = async e => {
     e.preventDefault();
+    if (password !== confirmPwd) {
+      setError('Las contraseñas no coinciden');
+      return;
+    }
     setError('');
     setLoading(true);
     try {
@@ -61,9 +67,11 @@ export default function Register() {
       navigate('/eventos');
     } catch (err) {
       console.error(err);
-      setError(err.message.includes('auth/') 
-        ? 'No se pudo crear la cuenta. Revisa los datos.' 
-        : err.message);
+      setError(
+        err.message.includes('auth/')
+          ? 'No se pudo crear la cuenta. Revisa los datos.'
+          : err.message
+      );
     }
     setLoading(false);
   };
@@ -76,6 +84,7 @@ export default function Register() {
           {error && <Alert variant="danger">{error}</Alert>}
 
           <Form onSubmit={handleSubmit}>
+            {/* Email */}
             <Form.Group className="mb-3" controlId="registerEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -87,6 +96,7 @@ export default function Register() {
               />
             </Form.Group>
 
+            {/* Contraseña */}
             <Form.Group className="mb-3" controlId="registerPassword">
               <Form.Label>Contraseña</Form.Label>
               <InputGroup>
@@ -111,9 +121,26 @@ export default function Register() {
               </Form.Text>
             </Form.Group>
 
+            {/* Confirmar Contraseña */}
+            <Form.Group className="mb-4" controlId="registerConfirmPassword">
+              <Form.Label>Confirmar contraseña</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Vuelve a escribir la contraseña"
+                value={confirmPwd}
+                onChange={e => setConfirmPwd(e.target.value)}
+                required
+                isInvalid={confirmPwd && confirmPwd !== password}
+              />
+              <Form.Control.Feedback type="invalid">
+                Las contraseñas no coinciden.
+              </Form.Control.Feedback>
+            </Form.Group>
+
+            {/* Botón Registrar */}
             <Button
               type="submit"
-              disabled={loading}
+              disabled={loading || password !== confirmPwd}
               className="w-100"
             >
               {loading ? <Spinner animation="border" size="sm" /> : 'Registrarse'}

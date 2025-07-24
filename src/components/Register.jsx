@@ -66,12 +66,9 @@ export default function Register() {
       toast.success('Cuenta creada correctamente');
       navigate('/eventos');
     } catch (err) {
-      console.error(err);
-      setError(
-        err.message.includes('auth/')
-          ? 'No se pudo crear la cuenta. Revisa los datos.'
-          : err.message
-      );
+      console.error('Register error:', err.code, err.message);
+      //Muestra el código de error + mensaje de error
+      setError(`${err.code}: ${err.message}`);
     }
     setLoading(false);
   };

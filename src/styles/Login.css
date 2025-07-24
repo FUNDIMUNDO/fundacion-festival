@@ -1,0 +1,45 @@
+/* src/styles/Login.css */
+.login-page {
+  min-height: 80vh;
+}
+
+.login-form {
+  background: var(--bs-white);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.divider {
+  text-align: center;
+  margin: 1rem 0;
+  color: #777;
+  position: relative;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  height: 1px;
+  background: #ddd;
+  width: 40%;
+  position: absolute;
+  top: 50%;
+}
+.divider::before { left: 0; }
+.divider::after  { right: 0; }
+
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  transition: background .2s;
+}
+.btn-google:hover {
+  background: #f7f7f7;
+}
+.google-logo {
+  width: 20px;
+  margin-right: 8px;
+}

@@ -1,13 +1,12 @@
-/* ESTE CODIGO HACE QUE SOLO SE PERMITA ACCESO SI isAdmin = TRUE */
+import React, { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
-// src/components/ProtectedRoute.jsx
-import React, { useContext } from 'react';
-import { Navigate, Outlet }  from 'react-router-dom';
-import { AuthContext }       from '../contexts/AuthContext';
+export default function ProtectedRoute({ children }) {
+  const { user, loading } = useContext(AuthContext);
 
-export default function ProtectedRoute() {
-  const { user, isAdmin } = useContext(AuthContext);
-  if (!user)    return <Navigate to="/login" replace />;
-  if (!isAdmin) return <Navigate to="/"      replace />;
-  return <Outlet />;
+  if (loading) return <div>Cargando...</div>;
+  if (!user) return <Navigate to="/login" replace />;
+
+  return children;
 }

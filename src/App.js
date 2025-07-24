@@ -12,6 +12,7 @@ import QuienesSomos     from './components/QuienesSomos';
 import EventosPage      from './pages/EventosPage';
 import Contacto         from './components/Contacto';
 import Login            from './components/Login';
+import ProtectedRoute   from './components/ProtectedRoute';
 import StickyBanner     from './components/StickyBanner';
 import WhatsAppButton   from './components/WhatsAppButton';
 import Footer           from './components/Footer';
@@ -37,8 +38,15 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/login" element={<Login />} />
 
-          {/* Eventos siempre visible */}
-          <Route path="/eventos" element={<EventosPage />} />
+          {/* Eventos solo accesible si está autenticado */}
+          <Route
+            path="/eventos"
+            element={
+              <ProtectedRoute>
+                <EventosPage />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
 
         <StickyBanner />

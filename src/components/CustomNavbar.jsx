@@ -73,15 +73,25 @@ const CustomNavbar = () => {
 
             {/* Autenticación */}
             {!user ? (
-              <Nav.Link
-                as={Link}
-                to="/login"
-                className="d-flex align-items-center"
-                aria-label="Iniciar sesión"
-              >
-                <FaSignInAlt className="me-2" aria-hidden="true" />
-                Iniciar Sesión
-              </Nav.Link>
+              <>
+                <Nav.Link
+                  as={Link}
+                  to="/login"
+                  className="d-flex align-items-center"
+                  aria-label="Iniciar sesión"
+                >
+                  <FaSignInAlt className="me-2" aria-hidden="true" />
+                  Iniciar Sesión
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
+                  to="/register"
+                  className="ms-2"
+                  aria-label="Registrarse"
+                >
+                  Registrarse
+                </Nav.Link>
+              </>
             ) : (
               <>
                 {/* Avatar y nombre */}

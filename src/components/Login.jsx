@@ -7,17 +7,16 @@ import {
   Spinner,
   Container,
   Row,
-  Col,
-  Divider
+  Col
 } from 'react-bootstrap';
 import {
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup
+  signInWithEmailAndPassword
 } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
+import googleLogo from '../assets/logos/google-logo.webp=s48-fcrop64=1,00000000ffffffff-rw';   // <-- importa el logo
+import '../styles/Login.css';                              // <-- importa los estilos
 
 export default function Login() {
   const [email, setEmail]       = useState('');
@@ -34,7 +33,7 @@ export default function Login() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       navigate('/eventos');
-    } catch (err) {
+    } catch {
       setError('Usuario o contraseña incorrectos');
     }
     setLoading(false);
@@ -44,26 +43,23 @@ export default function Login() {
     setError('');
     setLoading(true);
     try {
-      // si usas el método del contexto:
       await signInWithGoogle();
       navigate('/eventos');
-    } catch (err) {
-      console.error(err);
+    } catch {
       setError('Error al iniciar con Google');
     }
     setLoading(false);
   };
 
   return (
-    <Container className="py-5">
+    <Container className="py-5 login-page">
       <Row className="justify-content-center">
         <Col md={6}>
           <h2 className="mb-4 text-center">Iniciar sesión</h2>
 
           {error && <Alert variant="danger">{error}</Alert>}
 
-          {/* Formulario Email/Password */}
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className="login-form">
             <Form.Group className="mb-3" controlId="loginEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -95,27 +91,22 @@ export default function Login() {
             </Button>
           </Form>
 
-          {/* Divider */}
-          <div className="text-center my-3">o</div>
+          <div className="divider">o</div>
 
-          {/* Botón Google Sign-In */}
           <Button
-            variant="outline-danger"
+            variant="light"
             onClick={handleGoogle}
             disabled={loading}
-            className="w-100 d-flex align-items-center justify-content-center"
+            className="w-100 btn-google"
             aria-label="Continuar con Google"
           >
-            {loading ? (
-              <Spinner animation="border" size="sm" className="me-2" />
-            ) : (
-              <img
-                src="/logos/google-logo.png"
-                alt="Google logo"
-                style={{ width: 20, marginRight: 8 }}
-              />
-            )}
-            {loading ? 'Cargando...' : 'Continuar con Google'}
+            {loading 
+              ? <Spinner animation="border" size="sm" /> 
+              : <>
+                  <img src={googleLogo} alt="Google logo" className="google-logo" />
+                  <span>Continuar con Google</span>
+                </>
+            }
           </Button>
         </Col>
       </Row>

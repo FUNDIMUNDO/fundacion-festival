@@ -13,7 +13,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 import { AuthContext } from '../contexts/AuthContext';
-import googleLogo from '../assets/logos/google-logo.png'; // asegúrate de tener este archivo
+import googleLogo from '../assets/logos/google-logo.webp=s48-fcrop64=1,00000000ffffffff-rw';
 import '../styles/Login.css';
 
 export default function Login() {

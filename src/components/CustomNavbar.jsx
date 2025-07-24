@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import logo from '../assets/logos/logo.png';
+import defaultAvatar from '../assets/logos/default-avatar.png';
 import '../styles/CustomNavbar.css';
 import { AuthContext } from '../contexts/AuthContext';
 import DonationButton from './DonationButton';
@@ -25,7 +26,7 @@ const CustomNavbar = () => {
       await logout();
       toast.success('Has cerrado sesión');
       navigate('/');
-    } catch (err) {
+    } catch {
       toast.error('Error al cerrar sesión');
     }
   };
@@ -58,7 +59,6 @@ const CustomNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center">
-
             {/* Enlaces estáticos */}
             <Nav.Link as={Link} to="/" aria-label="Inicio">Inicio</Nav.Link>
             <Nav.Link as={Link} to="/quienes-somos" aria-label="Sobre Nosotros">
@@ -87,7 +87,7 @@ const CustomNavbar = () => {
                 {/* Avatar y nombre */}
                 <Nav.Item className="d-flex align-items-center me-3">
                   <Image
-                    src={user.photoURL}
+                    src={user.photoURL || defaultAvatar}
                     roundedCircle
                     alt={user.displayName}
                     title={user.displayName}

@@ -56,7 +56,6 @@ export default function Register() {
     setLoading(true);
     try {
       const { user } = await createUserWithEmailAndPassword(auth, email, password);
-      // Guardar perfil básico en Firestore
       await setDoc(doc(db, 'users', user.uid), {
         uid:       user.uid,
         email:     user.email,
@@ -66,9 +65,8 @@ export default function Register() {
       toast.success('Cuenta creada correctamente');
       navigate('/eventos');
     } catch (err) {
-      console.error('Register error:', err.code, err.message);
-      //Muestra el código de error + mensaje de error
-      setError(`${err.code}: ${err.message}`);
+      console.error(err);
+      setError('No se pudo crear la cuenta. Revisa los datos.');
     }
     setLoading(false);
   };

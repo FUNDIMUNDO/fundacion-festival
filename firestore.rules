@@ -2,19 +2,19 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Perfiles de usuario
+    // 1) Perfiles de usuario
     match /users/{userId} {
-      // Crear solo si está autenticado y coincide el UID
+      // Crear perfil sólo si está autenticado y coincide el UID
       allow create: if request.auth != null
                     && request.auth.uid == userId;
-      // Leer y actualizar solo su propio doc
+      // Leer y actualizar sólo su propio doc
       allow read, update: if request.auth != null
                           && request.auth.uid == userId;
-      // No permitir borrado
+      // No permitir borrar perfiles
       allow delete: if false;
     }
 
-    // Reglas para Eventos
+    // 2) Reglas para Eventos
     match /events/{eventId} {
       allow read: if true;
       allow create, update, delete:
@@ -22,16 +22,20 @@ service cloud.firestore {
         && request.auth.token.admin == true;
     }
 
-    // Reglas para Donaciones
+    // 3) Reglas para Donaciones
     match /donations/{docId} {
-      // Solo usuarios autenticados pueden crear donaciones
+      // Sólo usuarios autenticados pueden crear donaciones
       allow create: if request.auth != null;
-      // Cada usuario solo puede leer sus propias donaciones
+      // Cada usuario sólo puede leer sus propias donaciones
       allow read:   if request.auth != null
                   && request.auth.uid == resource.data.userId;
-      // No permitimos actualizar ni eliminar donaciones
+      // No permitir actualizar ni eliminar
       allow update, delete: if false;
     }
-
+    
+    // 4) Ningún otro acceso
+    match /{document=**} {
+      allow read, write: if false;
+    }
   }
 }

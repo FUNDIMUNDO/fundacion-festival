@@ -46,7 +46,7 @@ const Footer = () => {
             <p className="mb-1">
               <FaWhatsapp className="me-2 text-success" />
               <a
-                href="https://wa.me/571234567890"
+                href="https://wa.me/573006207693"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-light text-decoration-none"

@@ -1,6 +1,7 @@
 // src/components/Hero.jsx
 import React, { useEffect } from 'react';
 import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { FaUserTie, FaTree, FaHandsHelping, FaChevronDown } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -77,6 +78,8 @@ const Hero = () => {
                     {slide.description}
                   </p>
                   <Button
+                    as={Link}
+                    to="/register"
                     className="btn-accent btn-lg ripple"
                     data-aos="zoom-in"
                     data-aos-delay="400"

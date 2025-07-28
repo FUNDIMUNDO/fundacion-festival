@@ -12,6 +12,7 @@ import {
   Tooltip,
   Button
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import {
   FaBullseye,
   FaEye,
@@ -20,29 +21,26 @@ import {
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import fundacionImg from '../assets/images/QuienesSomos.png';
-import '../styles/QuienesSomos.css';  // asegúrate de tener aquí las reglas para .mvv-section, .mvv-overlay y .mvv-content
+import '../styles/QuienesSomos.css';
+
+const valoresInfo = {
+  Inclusión: 'Fomentamos la participación de todas las personas sin discriminación.',
+  Colaboración: 'Trabajamos conjuntamente con comunidades y aliados.',
+  Creatividad: 'Impulsamos soluciones artísticas e innovadoras.',
+  Sostenibilidad: 'Promovemos prácticas que cuidan nuestro entorno.'
+};
+const iconColor = 'var(--color-logo-purple)';
 
 const QuienesSomos = () => {
   useEffect(() => {
     AOS.init({ duration: 600, once: true });
   }, []);
 
-  const valoresInfo = {
-    Inclusión: 'Fomentamos la participación de todas las personas sin discriminación.',
-    Colaboración: 'Trabajamos conjuntamente con comunidades y aliados.',
-    Creatividad: 'Impulsamos soluciones artísticas e innovadoras.',
-    Sostenibilidad: 'Promovemos prácticas que cuidan nuestro entorno.'
-  };
-  const iconColor = 'var(--color-logo-purple)';
-
   return (
     <section id="mvv" className="mvv-section">
-      {/* overlay semitransparente */}
       <div className="mvv-overlay" />
 
-      {/* contenido en primer plano */}
       <Container className="mvv-content py-5">
-        {/* Encabezado con imagen y descripción */}
         <Row className="align-items-center">
           <Col md={6} className="mb-4 mb-md-0" data-aos="fade-left">
             <Image
@@ -72,12 +70,10 @@ const QuienesSomos = () => {
           </Col>
         </Row>
 
-        {/* Misión, Visión y Valores */}
         <h3 className="text-center mt-5 mb-4" data-aos="zoom-in">
           Misión, Visión y Valores
         </h3>
 
-        {/* Desktop */}
         <Row className="g-4 d-none d-md-flex">
           <Col md={4} data-aos="fade-up" data-aos-delay="100">
             <Card className="h-100 shadow-sm border-0 card-hover">
@@ -138,7 +134,6 @@ const QuienesSomos = () => {
           </Col>
         </Row>
 
-        {/* Mobile */}
         <Accordion className="d-md-none" defaultActiveKey="">
           {['Misión', 'Visión', 'Valores'].map((section, idx) => (
             <Accordion.Item eventKey={`${idx}`} key={section}>
@@ -168,9 +163,12 @@ const QuienesSomos = () => {
           ))}
         </Accordion>
 
-        {/* CTA */}
         <div className="text-center mt-5">
-          <Button className="btn-accent ripple px-4 py-2">
+          <Button
+            as={Link}
+            to="/register"
+            className="btn-accent ripple px-4 py-2"
+          >
             Únete a Nuestra Misión
           </Button>
         </div>

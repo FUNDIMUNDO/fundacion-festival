@@ -12,7 +12,7 @@ import DonationButton from './DonationButton';
 
 const CustomNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const { user, logout } = useContext(AuthContext);
+  const { user, isAdmin, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -70,6 +70,13 @@ const CustomNavbar = () => {
             <Nav.Link as={Link} to="/contacto" aria-label="Contacto">
               Contacto
             </Nav.Link>
+
+            {/* Link al Dashboard solo para admins */}
+            {isAdmin && (
+              <Nav.Link as={Link} to="/admin" className="ms-2" aria-label="Dashboard">
+                Dashboard
+              </Nav.Link>
+            )}
 
             {/* Autenticación */}
             {!user ? (

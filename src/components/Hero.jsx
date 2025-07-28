@@ -1,7 +1,7 @@
 // src/components/Hero.jsx
-import React, { useEffect } from 'react';
-import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Carousel, Container, Row, Col, Button, Form, InputGroup } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaUserTie, FaTree, FaHandsHelping, FaChevronDown } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -40,9 +40,18 @@ const slides = [
 ];
 
 const Hero = () => {
+  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
+
   useEffect(() => {
     AOS.init({ duration: 700, easing: 'ease-out', once: true });
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Lleva al registro con el email pre-llenado
+    navigate('/register', { state: { email } });
+  };
 
   return (
     <Carousel
@@ -77,14 +86,32 @@ const Hero = () => {
                   <p className="hero-lead mb-4" data-aos="fade-up" data-aos-delay="200">
                     {slide.description}
                   </p>
+
+                  {/* Mini‐formulario */}
+                  <Form onSubmit={handleSubmit} className="d-flex mb-4" data-aos="zoom-in" data-aos-delay="400">
+                    <InputGroup>
+                      <Form.Control
+                        type="email"
+                        placeholder="Tu correo electrónico"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                      />
+                      <Button type="submit" variant="accent">
+                        Únete
+                      </Button>
+                    </InputGroup>
+                  </Form>
+
+                  {/* Botón alternativo */}
                   <Button
                     as={Link}
                     to="/register"
-                    className="btn-accent btn-lg ripple"
+                    className="btn-outline-light btn-lg ripple"
                     data-aos="zoom-in"
-                    data-aos-delay="400"
+                    data-aos-delay="600"
                   >
-                    Únete a Nuestra Misión
+                    Regístrate
                   </Button>
                 </Col>
               </Row>
@@ -93,7 +120,7 @@ const Hero = () => {
                 className="scroll-indicator"
                 size={32}
                 data-aos="fade-up"
-                data-aos-delay="600"
+                data-aos-delay="800"
               />
             </Container>
           </Carousel.Item>

@@ -105,14 +105,15 @@ const Hero = () => {
 
                   {/* Botón alternativo */}
                   <Button
-                    as={Link}
-                    to="/register"
-                    className="btn-outline-light btn-lg ripple"
-                    data-aos="zoom-in"
-                    data-aos-delay="600"
-                  >
-                    Regístrate
-                  </Button>
+  as={Link}
+  to="/register"
+  className="btn-register btn-lg ripple"
+  data-aos="zoom-in"
+  data-aos-delay="600"
+>
+  Regístrate
+</Button>
+
                 </Col>
               </Row>
 

@@ -10,6 +10,7 @@ import Hero             from './components/Hero';
 import AboutHome        from './components/AboutHome';
 import QuienesSomos     from './components/QuienesSomos';
 import EventosPage      from './pages/EventosPage';
+import AdminDashboardPage from './pages/AdminDashboardPage';   // ← nuevo
 import Contacto         from './components/Contacto';
 import Login            from './components/Login';
 import Register         from './components/Register';
@@ -40,12 +41,22 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* Eventos solo accesible si está autenticado */}
+          {/* Eventos sólo accesible si está autenticado */}
           <Route
             path="/eventos"
             element={
               <ProtectedRoute>
                 <EventosPage />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Dashboard Admin sólo para admins */}
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute adminOnly>
+                <AdminDashboardPage />
               </ProtectedRoute>
             }
           />

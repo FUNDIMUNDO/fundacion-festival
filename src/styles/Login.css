@@ -43,3 +43,19 @@
   width: 20px;
   margin-right: 8px;
 }
+
+
+/* Botones loggin Morado */
+
+.btn-morado {
+  background-color: #6a1b9a !important;
+  border-color: #6a1b9a !important;
+  color: #fff !important;
+}
+
+.btn-morado:hover {
+  background-color: #4a148c !important;
+  border-color: #4a148c !important;
+}
+
+

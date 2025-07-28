@@ -83,7 +83,7 @@ export default function Login() {
             <Button
               type="submit"
               disabled={loading}
-              className="w-100 mb-3"
+              className="btn-morado"
             >
               {loading ? <Spinner animation="border" size="sm" /> : 'Entrar'}
             </Button>

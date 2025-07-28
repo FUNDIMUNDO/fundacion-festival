@@ -3,12 +3,12 @@ import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
 import { AuthContext } from "../contexts/AuthContext";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebaseConfig";
-import UsersChart from "../components/dashboard/UsersChart";
-import DonationsChart from "../components/dashboard/DonationsChart";
-import EventsChart from "../components/dashboard/EventsChart";
+import UsersChart from "../components/UsersChart";
+import DonationsChart from "../components/DonationsChart";
+import EventsChart from "../components/EventsChart";
 
 export default function AdminDashboardPage() {
-  const { isAdmin } = useContext(AuthContext);
+  const { isAdmin, loading: authLoading } = useContext(AuthContext);
   const [stats, setStats] = useState({ users: 0, donations: 0, events: 0 });
   const [loading, setLoading] = useState(true);
 
@@ -22,7 +22,7 @@ export default function AdminDashboardPage() {
         setStats({
           users: usersSnap.size,
           events: eventsSnap.size,
-          donations: donationsSnap.size
+          donations: donationsSnap.size,
         });
       } catch (err) {
         console.error(err);
@@ -34,7 +34,19 @@ export default function AdminDashboardPage() {
     fetchStats();
   }, []);
 
-  if (!isAdmin) return <p>No tienes acceso a esta página</p>;
+  // Si el AuthContext todavía está cargando, muestra spinner
+  if (authLoading) {
+    return (
+      <Container className="text-center my-5">
+        <Spinner animation="border" />
+      </Container>
+    );
+  }
+
+  // Si ya cargó y el usuario no es admin
+  if (!isAdmin) {
+    return <p>No tienes acceso a esta página</p>;
+  }
 
   return (
     <Container className="my-4">

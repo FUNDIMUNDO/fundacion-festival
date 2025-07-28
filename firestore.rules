@@ -7,16 +7,31 @@ service cloud.firestore {
       // Crear perfil sólo si está autenticado y coincide el UID
       allow create: if request.auth != null
                     && request.auth.uid == userId;
-      // Leer y actualizar sólo su propio doc
-      allow read, update: if request.auth != null
-                          && request.auth.uid == userId;
+
+      // Leer:
+      // - Cada usuario puede leer su propio perfil
+      // - Los admins pueden leer cualquier perfil
+      allow read: if request.auth != null
+                  && (request.auth.uid == userId
+                      || request.auth.token.admin == true);
+
+      // Actualizar:
+      // - Cada usuario actualiza su propio perfil
+      // - Opcional: permitir que admins actualicen perfiles
+      allow update: if request.auth != null
+                    && (request.auth.uid == userId
+                        || request.auth.token.admin == true);
+
       // No permitir borrar perfiles
       allow delete: if false;
     }
 
     // 2) Reglas para Eventos
     match /events/{eventId} {
+      // Lectura pública
       allow read: if true;
+
+      // CRUD solo para admins
       allow create, update, delete:
         if request.auth != null
         && request.auth.token.admin == true;
@@ -24,11 +39,13 @@ service cloud.firestore {
 
     // 3) Reglas para Donaciones
     match /donations/{docId} {
-      // Sólo usuarios autenticados pueden crear donaciones
+      // Crear donación solo si está autenticado
       allow create: if request.auth != null;
-      // Cada usuario sólo puede leer sus propias donaciones
-      allow read:   if request.auth != null
+
+      // Leer solo sus propias donaciones
+      allow read: if request.auth != null
                   && request.auth.uid == resource.data.userId;
+
       // No permitir actualizar ni eliminar
       allow update, delete: if false;
     }

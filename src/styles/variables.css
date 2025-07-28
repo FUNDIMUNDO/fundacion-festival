@@ -38,3 +38,24 @@
   outline: 3px solid var(--color-accent);
   outline-offset: 3px;
 }
+
+/* Hero.css */
+
+.btn-register {
+  background-color: #6a1b9a;
+  border: 1px solid #6a1b9a;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-register:hover {
+  background-color: #7a23a8;           /* un tono un poco más claro */
+  transform: translateY(-3px);         /* sutil elevación */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-register:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(106, 27, 154, 0.4); /* foco accesible */
+}
+

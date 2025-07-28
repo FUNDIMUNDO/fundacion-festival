@@ -16,6 +16,8 @@ import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
+import '../styles/Register.css';  // ← Asegúrate de tener este archivo
+
 const PASSWORD_ALPHABET =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
 
@@ -136,7 +138,7 @@ export default function Register() {
             <Button
               type="submit"
               disabled={loading || password !== confirmPwd}
-              className="w-100"
+              className="btn-register w-100"
             >
               {loading ? <Spinner animation="border" size="sm" /> : 'Registrarse'}
             </Button>

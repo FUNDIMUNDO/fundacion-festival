@@ -41,7 +41,7 @@ const Footer = () => {
             </p>
             <p className="mb-1">
               <FaPhone className="me-2 text-primary" />
-              +57 123 456 7890
+              +57 300 620 7693
             </p>
             <p className="mb-1">
               <FaWhatsapp className="me-2 text-success" />
